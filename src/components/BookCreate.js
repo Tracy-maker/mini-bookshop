@@ -1,16 +1,19 @@
 import { useState } from "react";
 
-function BookCreate() {
+function BookCreate(props) {
+  const [title, setTitle] = useState("");
 
-  const [title,setTitle]=useState('');
-
-  const handleChange=(event)=>{
+  const handleChange = (event) => {
     setTitle(event.target.value);
-  }
+  };
 
-  const handleSubmit=(event)=>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-  }
+    if (title.trim() !== "") {
+      props.onCreate(title);
+      setTitle("");
+    }
+  };
 
   return (
     <div className="book-create">
