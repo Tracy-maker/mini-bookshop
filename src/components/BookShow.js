@@ -21,7 +21,7 @@ function BookShow(props) {
   }
   return (
     <div className="book-show">
-      <img alt="books" />
+      <img alt="books" src={`https://picsum.photos/seed/${props.book.id}/300/200`}  />
       <div>{content}</div>
       <div className="actions">
         <button className="edit" onClick={handleEdit}>
