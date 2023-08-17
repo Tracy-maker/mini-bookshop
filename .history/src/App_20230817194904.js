@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function getRandomAnimal() {
   const animals = ["bird", "cat", "cow", "dog", "gator", "horse"];
-  return animals[Math.floor(Math.random() * animals.length)];
+  return animals[Math.random() * animals.length];
 }
 
 function App() {
