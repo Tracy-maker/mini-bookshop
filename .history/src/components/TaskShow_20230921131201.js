@@ -6,7 +6,7 @@ import Chip from "@mui/material/Chip";
 import styled from "styled-components";
 import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteIcon from "@mui/icons-material/Delete"; 
 import TaskEdit from "./TaskEdit";
 
 const TaskItem = styled(Box)`
@@ -90,7 +90,7 @@ function TaskShow(props) {
           variant="outlined"
           color="error"
           onClick={handleDelete}
-          icon={<DeleteIcon />}
+          icon={<DeleteIcon />} 
         />
       </Box>
     </TaskItem>

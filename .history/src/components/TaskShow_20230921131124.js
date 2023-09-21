@@ -6,8 +6,7 @@ import Chip from "@mui/material/Chip";
 import styled from "styled-components";
 import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import TaskEdit from "./TaskEdit";
+import DeleteIcon from "@mui/icons-material/Delete"; // Import the delete icon
 
 const TaskItem = styled(Box)`
   display: flex;
@@ -90,7 +89,7 @@ function TaskShow(props) {
           variant="outlined"
           color="error"
           onClick={handleDelete}
-          icon={<DeleteIcon />}
+          icon={<DeleteIcon />} // Use the DeleteIcon for delete action
         />
       </Box>
     </TaskItem>

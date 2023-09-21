@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
-import Checkbox from "@mui/material/Checkbox";
-import Chip from "@mui/material/Chip";
+import Checkbox from "@mui/joy/Checkbox";
+import Chip from "@mui/joy/Chip";
+import ChipDelete from "@mui/joy/ChipDelete";
 import styled from "styled-components";
 import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import TaskEdit from "./TaskEdit";
 
 const TaskItem = styled(Box)`
@@ -51,6 +51,7 @@ function TaskShow(props) {
   if (showEdit) {
     content = <TaskEdit onSubmit={handleSubmit} task={props.task} />;
   } else {
+    console.log(props.task);
     content = (
       <>
         <TaskInformation variant="h5" isDeleted={props.task.status === "done"}>
@@ -73,24 +74,22 @@ function TaskShow(props) {
 
   return (
     <TaskItem>
-      <Checkbox
-        checked={props.task.status === "done"}
-        onChange={handleCheckboxChange}
-      />
-      <TaskContent>{content}</TaskContent>
+      <Checkbox checked={props.task.status === "done"} onChange={handleCheckboxChange} />
+      <TaskContent>
+        {content}
+      </TaskContent>
 
       <Box>
         <Chip
-          variant="outlined"
+          variant="soft"
           color="success"
           onClick={handleEdit}
-          icon={<EditIcon />}
+          endDecorator={<EditIcon />}
         />
         <Chip
-          variant="outlined"
-          color="error"
-          onClick={handleDelete}
-          icon={<DeleteIcon />}
+          variant="soft"
+          color="danger"
+          endDecorator={<ChipDelete onClick={handleDelete} />}
         />
       </Box>
     </TaskItem>
