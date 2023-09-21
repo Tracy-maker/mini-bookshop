@@ -11,7 +11,7 @@ import useBooksContext from "../hooks/useBooksContext";
 
 const BookContainer = styled(Box)`
   display: flex;
-  direction: columns;
+  
   justify-content: space-between;
   align-items: center;
   padding: 15px;
@@ -52,6 +52,7 @@ function BookItem({ book }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   } else {
+    
     if (
       typeof book.title === "string" &&
       typeof book.description === "string"
@@ -63,6 +64,7 @@ function BookItem({ book }) {
         </>
       );
     } else {
+     
       content = (
         <>
           <Typography variant="h5">Invalid Title</Typography>

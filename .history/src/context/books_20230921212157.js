@@ -6,11 +6,11 @@ function Provider({ children }) {
   const [Books, setBooks] = useState([]);
 
   const fetchBooks = () => {
-    const localValue = localStorage.getItem("BOOKS");
-    if (localValue === null) {
-      return [];
-    }
-    return setBooks(JSON.parse(localValue));
+    // Retrieve the books data from local storage
+    const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
+  
+    // Set the retrieved data in your state variable (assuming you have a 'setBooks' function)
+    setBooks(storedBooks);
   };
 
   const createBook = (title, description) => {
@@ -36,19 +36,21 @@ function Provider({ children }) {
   };
 
   const editBookById = (id, newTitle, newDescription) => {
-    const storedBooks = JSON.parse(localStorage.getItem("BOOKS")) || [];
+    
+    const storedBooks = JSON.parse(localStorage.getItem('BOOKS')) || [];
     const bookIndex = storedBooks.findIndex((book) => book.id === id);
-
+  
     if (bookIndex !== -1) {
       storedBooks[bookIndex] = {
         ...storedBooks[bookIndex],
         title: newTitle,
         description: newDescription,
       };
-      localStorage.setItem("BOOKS", JSON.stringify(storedBooks));
+      localStorage.setItem('BOOKS', JSON.stringify(storedBooks));
       setBooks(storedBooks);
     }
   };
+  
 
   const valueToShare = {
     Books,

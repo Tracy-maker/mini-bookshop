@@ -7,9 +7,11 @@ function Provider({ children }) {
 
   const fetchBooks = () => {
     const localValue = localStorage.getItem("BOOKS");
+
     if (localValue === null) {
       return [];
     }
+
     return setBooks(JSON.parse(localValue));
   };
 

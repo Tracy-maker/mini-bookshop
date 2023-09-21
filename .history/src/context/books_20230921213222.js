@@ -6,10 +6,8 @@ function Provider({ children }) {
   const [Books, setBooks] = useState([]);
 
   const fetchBooks = () => {
-    const localValue = localStorage.getItem("BOOKS");
-    if (localValue === null) {
-      return [];
-    }
+    const localValue = localStorage.getItem("BOOKS") || [];
+
     return setBooks(JSON.parse(localValue));
   };
 

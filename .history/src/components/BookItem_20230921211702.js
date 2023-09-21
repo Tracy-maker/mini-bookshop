@@ -52,6 +52,7 @@ function BookItem({ book }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   } else {
+    
     if (
       typeof book.title === "string" &&
       typeof book.description === "string"
@@ -63,6 +64,7 @@ function BookItem({ book }) {
         </>
       );
     } else {
+     
       content = (
         <>
           <Typography variant="h5">Invalid Title</Typography>
