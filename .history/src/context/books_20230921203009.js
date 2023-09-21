@@ -36,8 +36,8 @@ function Provider({ children }) {
   };
 
   const editBookById = (id, newTitle, newDescription) => {
-    
-    const storedBooks = JSON.parse(localStorage.getItem('BOOKS')) || [];
+    // Retrieve the current books data from local storage
+    const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
     const bookIndex = storedBooks.findIndex((book) => book.id === id);
   
     if (bookIndex !== -1) {
@@ -46,7 +46,7 @@ function Provider({ children }) {
         title: newTitle,
         description: newDescription,
       };
-      localStorage.setItem('BOOKS', JSON.stringify(storedBooks));
+      localStorage.setItem('books', JSON.stringify(storedBooks));
       setBooks(storedBooks);
     }
   };

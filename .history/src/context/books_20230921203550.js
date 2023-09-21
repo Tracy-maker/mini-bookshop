@@ -46,7 +46,7 @@ function Provider({ children }) {
         title: newTitle,
         description: newDescription,
       };
-      localStorage.setItem('BOOKS', JSON.stringify(storedBooks));
+      localStorage.setItem('books', JSON.stringify(storedBooks));
       setBooks(storedBooks);
     }
   };

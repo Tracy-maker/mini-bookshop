@@ -13,7 +13,7 @@ const StyledContainer = styled(Stack)`
   align-items: stretch;
   padding-top: 30px;
   background-size: cover;
-  background-color: #e6e6fa;
+  background-color: #E6E6FA;
   background-repeat: no-repeat;
   gap: 20px;
 `;

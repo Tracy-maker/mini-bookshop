@@ -41,12 +41,9 @@ function Provider({ children }) {
     const bookIndex = storedBooks.findIndex((book) => book.id === id);
   
     if (bookIndex !== -1) {
-      storedBooks[bookIndex] = {
-        ...storedBooks[bookIndex],
-        title: newTitle,
-        description: newDescription,
-      };
-      localStorage.setItem('BOOKS', JSON.stringify(storedBooks));
+      storedBooks[bookIndex].title = newTitle;
+      storedBooks[bookIndex].description = newDescription;
+      localStorage.setItem('books', JSON.stringify(storedBooks));
       setBooks(storedBooks);
     }
   };

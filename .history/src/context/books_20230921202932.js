@@ -36,17 +36,24 @@ function Provider({ children }) {
   };
 
   const editBookById = (id, newTitle, newDescription) => {
-    
-    const storedBooks = JSON.parse(localStorage.getItem('BOOKS')) || [];
+    // Retrieve the current books data from local storage
+    const storedBooks = JSON.parse(localStorage.getItem('books')) || [];
+  
+    // Find the index of the book with the specified id in the local storage data
     const bookIndex = storedBooks.findIndex((book) => book.id === id);
   
     if (bookIndex !== -1) {
+      // If the book with the specified id is found, update its properties
       storedBooks[bookIndex] = {
         ...storedBooks[bookIndex],
         title: newTitle,
         description: newDescription,
       };
-      localStorage.setItem('BOOKS', JSON.stringify(storedBooks));
+  
+      // Update the books data in local storage
+      localStorage.setItem('books', JSON.stringify(storedBooks));
+  
+      // Update the state if necessary (assuming you're using React)
       setBooks(storedBooks);
     }
   };

@@ -38,6 +38,10 @@ function BookItem({ book }) {
   const [showEdit, setShowEdit] = useState(false);
   const { deleteBooksById } = useBooksContext();
 
+  const handleDelete = () => {
+    deleteBooksById(book.id);
+  };
+
   const handleEdit = () => {
     setShowEdit(!showEdit);
   };
@@ -51,31 +55,15 @@ function BookItem({ book }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   } else {
-    
-    if (
-      typeof book.title === "string" &&
-      typeof book.description === "string"
-    ) {
-      content = (
-        <>
-          <BookInformation variant="h5">{book.title}</BookInformation>
-          <BookInformation variant="body1">{book.description}</BookInformation>
-        </>
-      );
-    } else {
-     
-      content = (
-        <>
-          <Typography variant="h5">Invalid Title</Typography>
-          <Typography variant="body1">Invalid Description</Typography>
-        </>
-      );
-    }
+    content = (
+      <>
+        <BookInformation variant="h5">{book.title}</BookInformation>
+        <BookInformation variant="h7">{book.description}</BookInformation>
+      </>
+    );
   }
 
-  const handleDelete = () => {
-    deleteBooksById(book.id);
-  };
+
 
   return (
     <BookContainer>

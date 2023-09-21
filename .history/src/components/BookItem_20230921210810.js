@@ -34,7 +34,7 @@ const BookInformation = styled(Typography)`
   font-size: small;
 `;
 
-function BookItem({ book }) {
+function BookItem ({ book }) {
   const [showEdit, setShowEdit] = useState(false);
   const { deleteBooksById } = useBooksContext();
 
@@ -51,11 +51,8 @@ function BookItem({ book }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   } else {
-    
-    if (
-      typeof book.title === "string" &&
-      typeof book.description === "string"
-    ) {
+    // Check if book.title and book.description are valid strings before rendering them
+    if (typeof book.title === 'string' && typeof book.description === 'string') {
       content = (
         <>
           <BookInformation variant="h5">{book.title}</BookInformation>
@@ -63,7 +60,7 @@ function BookItem({ book }) {
         </>
       );
     } else {
-     
+      // Handle the case where title or description is not a valid string
       content = (
         <>
           <Typography variant="h5">Invalid Title</Typography>
@@ -100,4 +97,5 @@ function BookItem({ book }) {
   );
 }
 
-export default BookItem;
+export default BookItem
+

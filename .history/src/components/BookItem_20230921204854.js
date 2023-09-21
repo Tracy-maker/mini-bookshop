@@ -51,26 +51,14 @@ function BookItem({ book }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   } else {
-    
-    if (
-      typeof book.title === "string" &&
-      typeof book.description === "string"
-    ) {
-      content = (
-        <>
-          <BookInformation variant="h5">{book.title}</BookInformation>
-          <BookInformation variant="body1">{book.description}</BookInformation>
-        </>
-      );
-    } else {
-     
-      content = (
-        <>
-          <Typography variant="h5">Invalid Title</Typography>
-          <Typography variant="body1">Invalid Description</Typography>
-        </>
-      );
-    }
+    content = (
+      <>
+      <BookInformation variant="h5">{book.title}</BookInformation>
+<BookInformation variant="subtitle1">{book.description}</BookInformation>
+
+      </>
+    );
+    console.log(book);
   }
 
   const handleDelete = () => {
