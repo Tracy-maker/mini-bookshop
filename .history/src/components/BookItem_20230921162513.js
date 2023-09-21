@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import TaskEdit from "./TaskEdit";
+import TaskEdit from "./BookEdit";
 
 const TaskItem = styled(Box)`
   display: flex;
@@ -34,7 +34,7 @@ const TaskInformation = styled(Typography)`
   text-decoration: ${({ isDeleted }) => (isDeleted ? "line-through" : "none")};
 `;
 
-function TaskShow(props) {
+function BookItem(props) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleEdit = () => {
@@ -67,16 +67,10 @@ function TaskShow(props) {
     props.onDelete(props.task.id);
   };
 
-  const handleCheckboxChange = () => {
-    props.toggleCheckedBoxById(props.task.id);
-  };
 
   return (
     <TaskItem>
-      <Checkbox
-        checked={props.task.status === "done"}
-        onChange={handleCheckboxChange}
-      />
+  
       <TaskContent>{content}</TaskContent>
 
       <Box>

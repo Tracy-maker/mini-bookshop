@@ -24,7 +24,7 @@ const TaskForm = styled(Box)`
   width: 1000px;
   background-color: white;
   border-radius: 15px;
-
+  
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -38,6 +38,7 @@ const Title = styled(Typography)`
 `;
 
 function App() {
+ 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
