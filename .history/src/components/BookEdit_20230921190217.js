@@ -10,10 +10,10 @@ const TaskEditBar = styled.form`
   align-items: stretch;
 `;
 
-function BookEdit({ Books, onSubmit }) {
+function BookEdit({ Book, onSubmit }) {
   const [formTask, setFormTask] = useState({
-    title: Books.title,
-    description: Books.description,
+    title: Book.title,
+    description: Book.description,
   });
   const { editBookById } = useBooksContext();
 
@@ -25,7 +25,7 @@ function BookEdit({ Books, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit();
-    editBookById(Books.id, formTask);
+    editBookById(Book.id, formTask)
   };
 
   return (

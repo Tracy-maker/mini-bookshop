@@ -3,7 +3,6 @@ import TaskShow from "./BookItem";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import useBooksContext from "../hooks/useBooksContext";
-import BookItem from "./BookItem";
 
 const Reminder = styled(Box)`
   text-align: center;
@@ -17,7 +16,7 @@ function NoBooksMessage() {
 function BookList() {
   const { Books } = useBooksContext();
   const renderedBooksList = Books.map((book) => {
-    return <BookItem key={book.id} book={book} />;
+    return <TaskShow key={book.id} task={book} />;
   });
 
   return (

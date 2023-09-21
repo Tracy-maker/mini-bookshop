@@ -3,7 +3,6 @@ import TaskShow from "./BookItem";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import useBooksContext from "../hooks/useBooksContext";
-import BookItem from "./BookItem";
 
 const Reminder = styled(Box)`
   text-align: center;
@@ -11,19 +10,24 @@ const Reminder = styled(Box)`
 `;
 
 function NoBooksMessage() {
-  return <Reminder noBooks>Add a new book...🍄💪🌟</Reminder>;
+  return (
+    <Reminder noBooks>
+      Add a new book...🍄💪🌟
+    </Reminder>
+  );
 }
 
 function BookList() {
   const { Books } = useBooksContext();
   const renderedBooksList = Books.map((book) => {
-    return <BookItem key={book.id} book={book} />;
+    return <TaskShow key={book.id} task={book} />;
   });
 
   return (
     <>
       {Books.length === 0 && <NoBooksMessage />}
       {renderedBooksList}
+      console.log(Books);
     </>
   );
 }

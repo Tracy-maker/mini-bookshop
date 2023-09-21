@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styled from "styled-components";
-import useBooksContext from "../hooks/useBooksContext";
 
 const TaskEditBar = styled.form`
   display: flex;
@@ -10,12 +9,11 @@ const TaskEditBar = styled.form`
   align-items: stretch;
 `;
 
-function BookEdit({ Books, onSubmit }) {
+function BookEdit({Book,onSubmit}) {
   const [formTask, setFormTask] = useState({
-    title: Books.title,
-    description: Books.description,
+    title: Book.title,
+    description: Book.description,
   });
-  const { editBookById } = useBooksContext();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,8 +22,7 @@ function BookEdit({ Books, onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit();
-    editBookById(Books.id, formTask);
+    props.onSubmit(props.task.id, formTask.title, formTask.description);
   };
 
   return (
@@ -35,14 +32,14 @@ function BookEdit({ Books, onSubmit }) {
         value={formTask.title}
         onChange={handleChange}
         fullWidth
-        placeholder="Please edit the book title"
+        placeholder="Please edit the task title"
       />
       <TextField
         name="description"
         value={formTask.description}
         onChange={handleChange}
         fullWidth
-        placeholder="Please edit the book description"
+        placeholder="Please edit the task description"
       />
       <Button type="submit" variant="contained">
         Save

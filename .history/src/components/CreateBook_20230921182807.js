@@ -19,7 +19,7 @@ const AddButton = styled(Button)`
   margin-right: 15px;
 `;
 
-function CreateBook() {
+function CreateBook(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { createBook } = useBooksContext();

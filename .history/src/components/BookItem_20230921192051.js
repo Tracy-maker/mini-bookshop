@@ -34,7 +34,7 @@ const BookInformation = styled(Typography)`
   font-size: small;
 `;
 
-function BookItem({ book }) {
+function BookItem({ Books }) {
   const [showEdit, setShowEdit] = useState(false);
   const { deleteBooksById } = useBooksContext();
 
@@ -49,24 +49,23 @@ function BookItem({ book }) {
   let content;
 
   if (showEdit) {
-    content = <BookEdit onSubmit={handleSubmit} book={book} />;
+    content = <BookEdit onSubmit={handleSubmit} Books={Books} />;
   } else {
     content = (
       <>
-        <BookInformation variant="h5">{book.title}</BookInformation>
-        <BookInformation variant="h7">{book.description}</BookInformation>
+        <BookInformation variant="h5">{Books.title}</BookInformation>
+        <BookInformation variant="h7">{Books.description}</BookInformation>
       </>
     );
-    console.log(book);
   }
-
+  
   const handleDelete = () => {
-    deleteBooksById(book.id);
+    deleteBooksById(Books.id);
   };
 
   return (
     <BookContainer>
-      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
+      <img alt="books" src={`https://picsum.photos/seed/${Books.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
       <Box>

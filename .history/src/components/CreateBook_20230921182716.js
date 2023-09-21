@@ -19,10 +19,10 @@ const AddButton = styled(Button)`
   margin-right: 15px;
 `;
 
-function CreateBook() {
+function CreateBook(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { createBook } = useBooksContext();
+  const {CreateBook} =useBooksContext
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +36,7 @@ function CreateBook() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (title.trim() !== "" || description.trim() !== "") {
-      createBook(title, description);
+      props.onCreate(title, description);
       setTitle("");
       setDescription("");
     }

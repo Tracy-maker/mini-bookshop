@@ -7,7 +7,6 @@ import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BookEdit from "./BookEdit";
-import useBooksContext from "../hooks/useBooksContext";
 
 const BookContainer = styled(Box)`
   display: flex;
@@ -31,42 +30,45 @@ const BookContent = styled(Box)`
 `;
 
 const BookInformation = styled(Typography)`
-  font-size: small;
+  text-decoration: ${({ isDeleted }) => (isDeleted ? "line-through" : "none")};
 `;
 
-function BookItem({ book }) {
+function BookItem({ Book }) {
   const [showEdit, setShowEdit] = useState(false);
-  const { deleteBooksById } = useBooksContext();
 
   const handleEdit = () => {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (id, newTitle, newDescription) => {
     setShowEdit(false);
+    props.onEdit(id, newTitle, newDescription);
   };
 
   let content;
 
   if (showEdit) {
-    content = <BookEdit onSubmit={handleSubmit} book={book} />;
+    content = <BookEdit onSubmit={handleSubmit} task={props.task} />;
   } else {
     content = (
       <>
-        <BookInformation variant="h5">{book.title}</BookInformation>
-        <BookInformation variant="h7">{book.description}</BookInformation>
+        <BookInformation variant="h5" isDeleted={props.task.status === "done"}>
+          {props.task.title}
+        </BookInformation>
+        <BookInformation variant="h7" isDeleted={props.task.status === "done"}>
+          {props.task.description}
+        </BookInformation>
       </>
     );
-    console.log(book);
   }
 
   const handleDelete = () => {
-    deleteBooksById(book.id);
+    props.onDelete(props.task.id);
   };
 
   return (
-    <BookContainer>
-      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
+    <BookContainer BookContainer>
+      <img alt="books" src={`https://picsum.photos/seed/${Book.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
       <Box>

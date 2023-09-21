@@ -31,12 +31,12 @@ const BookContent = styled(Box)`
 `;
 
 const BookInformation = styled(Typography)`
-  font-size: small;
+  text-decoration: ${({ isDeleted }) => (isDeleted ? "line-through" : "none")};
 `;
 
-function BookItem({ book }) {
+function BookItem({ Book }) {
   const [showEdit, setShowEdit] = useState(false);
-  const { deleteBooksById } = useBooksContext();
+  const {deleteBookById} = useBooksContext
 
   const handleEdit = () => {
     setShowEdit(!showEdit);
@@ -49,24 +49,27 @@ function BookItem({ book }) {
   let content;
 
   if (showEdit) {
-    content = <BookEdit onSubmit={handleSubmit} book={book} />;
+    content = <BookEdit onSubmit={handleSubmit} Book={Book} />;
   } else {
     content = (
       <>
-        <BookInformation variant="h5">{book.title}</BookInformation>
-        <BookInformation variant="h7">{book.description}</BookInformation>
+        <BookInformation variant="h5" >
+          {Book.title}
+        </BookInformation>
+        <BookInformation variant="h7" >
+          {Book.description}
+        </BookInformation>
       </>
     );
-    console.log(book);
   }
 
   const handleDelete = () => {
-    deleteBooksById(book.id);
+    props.onDelete(props.task.id);
   };
 
   return (
-    <BookContainer>
-      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
+    <BookContainer BookContainer>
+      <img alt="books" src={`https://picsum.photos/seed/${Book.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
       <Box>
