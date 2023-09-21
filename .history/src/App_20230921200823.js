@@ -29,6 +29,7 @@ const BookForm = styled(Box)`
   }
 `;
 const Title = styled(Typography)`
+  color: white;
   margin: auto;
   width: 100%;
   padding: 10px;
