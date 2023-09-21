@@ -41,9 +41,9 @@ const Title = styled(Typography)`
 function App() {
   const { fetchBooks } = useContext(BooksContext);
 
-  useEffect(() => {
+  useEffect(()=>{
     fetchBooks();
-  }, []);
+  },[]);
 
   return (
     <StyledContainer>

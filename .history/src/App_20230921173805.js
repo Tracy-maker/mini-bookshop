@@ -1,11 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
+import CreateTask from "./components/CreateBook";
+import TaskList from "./components/BookList";
 import { Box, Stack } from "@mui/material";
 import styled from "styled-components";
 import Typography from "@mui/material/Typography";
 import Image1 from "./image/7.jpg";
 import CreateBook from "./components/CreateBook";
-import BookList from "./components/BookList";
-import BooksContext from "./context/books";
 
 const StyledContainer = styled(Stack)`
   height: 100vh;
@@ -18,7 +18,7 @@ const StyledContainer = styled(Stack)`
   background-repeat: no-repeat;
   gap: 20px;
 `;
-
+ 
 const BookForm = styled(Box)`
   margin-left: auto;
   margin-right: auto;
@@ -39,11 +39,9 @@ const Title = styled(Typography)`
 `;
 
 function App() {
-  const { fetchBooks } = useContext(BooksContext);
-
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <StyledContainer>
@@ -51,10 +49,10 @@ function App() {
         🍄 🏰 Mini - BooksShop 🍄 🐢
       </Title>
       <BookForm>
-        <CreateBook />
+        <CreateBook  />
       </BookForm>
       <BookForm>
-        <BookList />
+        <TaskList />
       </BookForm>
     </StyledContainer>
   );

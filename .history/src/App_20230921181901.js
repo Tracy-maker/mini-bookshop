@@ -41,10 +41,6 @@ const Title = styled(Typography)`
 function App() {
   const { fetchBooks } = useContext(BooksContext);
 
-  useEffect(() => {
-    fetchBooks();
-  }, []);
-
   return (
     <StyledContainer>
       <Title variant="h3" gutterBottom>

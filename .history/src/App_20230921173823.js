@@ -1,11 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
+import CreateTask from "./components/CreateBook";
+import TaskList from "./components/BookList";
 import { Box, Stack } from "@mui/material";
 import styled from "styled-components";
 import Typography from "@mui/material/Typography";
 import Image1 from "./image/7.jpg";
 import CreateBook from "./components/CreateBook";
 import BookList from "./components/BookList";
-import BooksContext from "./context/books";
 
 const StyledContainer = styled(Stack)`
   height: 100vh;
@@ -39,11 +40,9 @@ const Title = styled(Typography)`
 `;
 
 function App() {
-  const { fetchBooks } = useContext(BooksContext);
-
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <StyledContainer>
