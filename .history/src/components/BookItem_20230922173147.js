@@ -25,6 +25,7 @@ const BookContainer = styled(Card)`
 
 const BookContent = styled(Stack)`
   display: flex;
+  direction: column;
   margin: auto;
   width: 100%;
   padding-top: 10px;
@@ -37,7 +38,6 @@ const BookContent = styled(Stack)`
 const BookInformation = styled(Typography)`
   font-size: small;
   width: 100%;
-  text-align: center;
 `;
 
 function BookItem({ book }) {

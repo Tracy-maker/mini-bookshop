@@ -42,7 +42,7 @@ const BookListForm = styled(Stack)`
 
 const Title = styled(Typography)`
   margin: auto;
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   text-align: center;
 `;

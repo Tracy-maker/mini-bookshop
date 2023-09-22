@@ -29,7 +29,7 @@ const BookForm = styled(Box)`
   }
 `;
 
-const BookListForm = styled(Stack)`
+const BookListForm = styled(Container)`
   display: flex;
   direction: row;
   flex-wrap: nowrap;

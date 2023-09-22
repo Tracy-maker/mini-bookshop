@@ -11,8 +11,9 @@ const Reminder = styled(Box)`
 
 const CardWrapper = styled(Box)`
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap; /* Enable wrapping to create a row of cards */
+  gap: 2px; /* Adjust the gap between cards */
+  justify-content: flex-start; /* Align cards from left to right */
 `;
 
 function NoBooksMessage() {

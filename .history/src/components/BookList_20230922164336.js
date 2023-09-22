@@ -9,12 +9,6 @@ const Reminder = styled(Box)`
   padding: ${(props) => (props.noBooks ? "25%" : "0")};
 `;
 
-const CardWrapper = styled(Box)`
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-`;
-
 function NoBooksMessage() {
   return <Reminder noBooks>Add a new book...🍄💪🌟</Reminder>;
 }
@@ -26,10 +20,10 @@ function BookList() {
   });
 
   return (
-    <CardWrapper>
+    <Stack>
       {Books.length === 0 && <NoBooksMessage />}
       {renderedBooksList}
-    </CardWrapper>
+    </Stack>
   );
 }
 

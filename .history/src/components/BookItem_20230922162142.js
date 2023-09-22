@@ -3,7 +3,7 @@ import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import styled from "styled-components";
-import { Box, Card, Container, Stack } from "@mui/material";
+import { Box, Card, Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BookEdit from "./BookEdit";
@@ -11,34 +11,33 @@ import useBooksContext from "../hooks/useBooksContext";
 
 const BookContainer = styled(Card)`
   display: flex;
-  justify-items: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 15px;
   border-style: solid;
   border-width: 1px;
-  margin: 1.3%;
-  width: 300px;
+  margin: 2%;
+  width: 330px;
   border-radius: 17px;
   border-color: lightgray;
 `;
 
 const BookContent = styled(Stack)`
   display: flex;
+  direction: column;
   margin: auto;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  justify-content: center;
-  align-items: center;
+  width: 80%;
+  padding: 10px;
+  /* justify-content: center;
+  align-items: center; */
   gap: 20px;
 `;
 
 const BookInformation = styled(Typography)`
   font-size: small;
-  width: 100%;
-  text-align: center;
 `;
+
 
 function BookItem({ book }) {
   const [showEdit, setShowEdit] = useState(false);

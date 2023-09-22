@@ -3,7 +3,7 @@ import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import styled from "styled-components";
-import { Box, Card, Container, Stack } from "@mui/material";
+import { Box, Card, Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BookEdit from "./BookEdit";
@@ -13,6 +13,7 @@ const BookContainer = styled(Card)`
   display: flex;
   justify-items: center;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 10px;
   border-style: solid;
@@ -25,10 +26,11 @@ const BookContainer = styled(Card)`
 
 const BookContent = styled(Stack)`
   display: flex;
+  direction: column;
   margin: auto;
   width: 100%;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-block-end: 10px;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -37,7 +39,11 @@ const BookContent = styled(Stack)`
 const BookInformation = styled(Typography)`
   font-size: small;
   width: 100%;
-  text-align: center;
+`;
+
+const OptionBox = styled(Box)`
+display: flex;
+padding-top:10 ;
 `;
 
 function BookItem({ book }) {
@@ -86,7 +92,7 @@ function BookItem({ book }) {
       <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
-      <Box>
+      <OptionBox>
         <Chip
           variant="outlined"
           color="success"
@@ -99,7 +105,7 @@ function BookItem({ book }) {
           onClick={handleDelete}
           icon={<DeleteIcon />}
         />
-      </Box>
+      </OptionBox>
     </BookContainer>
   );
 }

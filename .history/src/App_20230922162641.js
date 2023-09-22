@@ -31,7 +31,7 @@ const BookForm = styled(Box)`
 
 const BookListForm = styled(Stack)`
   display: flex;
-  direction: row;
+  direction: column;
   flex-wrap: nowrap;
   margin-left: auto;
   margin-right: auto;

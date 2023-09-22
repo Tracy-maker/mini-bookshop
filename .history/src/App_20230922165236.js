@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Box, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import styled from "styled-components";
 import Typography from "@mui/material/Typography";
 import CreateBook from "./components/CreateBook";
@@ -29,10 +29,9 @@ const BookForm = styled(Box)`
   }
 `;
 
-const BookListForm = styled(Stack)`
+const BookListForm = styled(Container)`
   display: flex;
   direction: row;
-  flex-wrap: nowrap;
   margin-left: auto;
   margin-right: auto;
   width: 1000px;

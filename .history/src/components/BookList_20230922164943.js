@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 import useBooksContext from "../hooks/useBooksContext";
 import BookItem from "./BookItem";
@@ -7,12 +7,6 @@ import BookItem from "./BookItem";
 const Reminder = styled(Box)`
   text-align: center;
   padding: ${(props) => (props.noBooks ? "25%" : "0")};
-`;
-
-const CardWrapper = styled(Box)`
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
 `;
 
 function NoBooksMessage() {
@@ -26,10 +20,10 @@ function BookList() {
   });
 
   return (
-    <CardWrapper>
+    <>
       {Books.length === 0 && <NoBooksMessage />}
       {renderedBooksList}
-    </CardWrapper>
+    </>
   );
 }
 
