@@ -38,6 +38,7 @@ const BookInformation = styled(Typography)`
 `;
 
 
+
 function BookItem({ book }) {
   const [showEdit, setShowEdit] = useState(false);
   const { deleteBooksById } = useBooksContext();
@@ -84,7 +85,7 @@ function BookItem({ book }) {
       <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
-      <Box>
+      <ChoiceBox>
         <Chip
           variant="outlined"
           color="success"
@@ -97,7 +98,7 @@ function BookItem({ book }) {
           onClick={handleDelete}
           icon={<DeleteIcon />}
         />
-      </Box>
+      </ChoiceBox>
     </BookContainer>
   );
 }

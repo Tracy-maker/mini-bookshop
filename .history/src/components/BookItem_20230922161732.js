@@ -37,6 +37,10 @@ const BookInformation = styled(Typography)`
   font-size: small;
 `;
 
+const ChoiceBox = styled(Stack)`
+  display: flex;
+  `;
+
 
 function BookItem({ book }) {
   const [showEdit, setShowEdit] = useState(false);
@@ -84,7 +88,7 @@ function BookItem({ book }) {
       <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <BookContent>{content}</BookContent>
 
-      <Box>
+      <ChoiceBox>
         <Chip
           variant="outlined"
           color="success"
@@ -97,7 +101,7 @@ function BookItem({ book }) {
           onClick={handleDelete}
           icon={<DeleteIcon />}
         />
-      </Box>
+      </ChoiceBox>
     </BookContainer>
   );
 }
