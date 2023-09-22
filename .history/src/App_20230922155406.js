@@ -30,7 +30,6 @@ const BookForm = styled(Box)`
 `;
 
 const BookListForm = styled(Box)`
-  display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
@@ -60,9 +59,9 @@ function App() {
       <BookForm>
         <CreateBook />
       </BookForm>
-      <BookListForm>
+      <BookForm>
         <BookList />
-      </BookListForm>
+      </BookForm>
     </StyledContainer>
   );
 }

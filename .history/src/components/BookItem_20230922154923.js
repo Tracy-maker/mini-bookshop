@@ -11,14 +11,14 @@ import useBooksContext from "../hooks/useBooksContext";
 
 const BookContainer = styled(Card)`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap:wrap;
   padding: 15px;
   border-style: solid;
   border-width: 1px;
   margin: 2%;
-  width:330px;
+  width:350px;
   border-radius: 17px;
   border-color: lightgray;
 `;

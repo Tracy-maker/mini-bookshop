@@ -3,22 +3,22 @@ import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import styled from "styled-components";
-import { Box, Card, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BookEdit from "./BookEdit";
 import useBooksContext from "../hooks/useBooksContext";
 
-const BookContainer = styled(Card)`
+const BookContainer = styled(Stack)`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap:wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap:nowrap;
   padding: 15px;
   border-style: solid;
   border-width: 1px;
   margin: 2%;
-  width:330px;
+  width:350px;
   border-radius: 17px;
   border-color: lightgray;
 `;

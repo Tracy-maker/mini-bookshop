@@ -13,6 +13,7 @@ const StyledContainer = styled(Stack)`
   align-items: stretch;
   padding-top: 30px;
   background-size: cover;
+
   background-repeat: no-repeat;
   gap: 20px;
 `;
@@ -21,23 +22,13 @@ const BookForm = styled(Box)`
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
-  background-color: #f0f8ff;
+  background-color: 	#F0F8FF;
   border-radius: 15px;
 
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
-
-const BookListForm = styled(Box)`
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
-  background-color: #f0f8ff;
-  border-radius: 15px;
-`;
-
 const Title = styled(Typography)`
   margin: auto;
   width: 100%;
@@ -60,9 +51,9 @@ function App() {
       <BookForm>
         <CreateBook />
       </BookForm>
-      <BookListForm>
+      <BookForm>
         <BookList />
-      </BookListForm>
+      </BookForm>
     </StyledContainer>
   );
 }
